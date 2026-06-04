@@ -91,10 +91,12 @@ import { ReviewPanelComponent } from '../components/review-panel/review-panel.co
     `
       .assistant-shell {
         display: grid;
+        grid-template-rows: auto 1fr;
         gap: 1.5rem;
         padding: 2rem;
         min-height: 100vh;
         background: radial-gradient(circle at top left, rgba(79, 140, 255, 0.16), transparent 24%), radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.14), transparent 20%), var(--bg-primary);
+        overflow-x: hidden;
       }
 
       .page-header {
@@ -108,6 +110,7 @@ import { ReviewPanelComponent } from '../components/review-panel/review-panel.co
         border-radius: 18px;
         box-shadow: var(--shadow-soft);
         backdrop-filter: blur(18px);
+        min-width: 0;
       }
 
       .header-copy {
@@ -149,8 +152,9 @@ import { ReviewPanelComponent } from '../components/review-panel/review-panel.co
 
       .page-body {
         display: grid;
-        grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+        grid-template-columns: 320px 1fr;
         gap: 1.5rem;
+        min-height: 0;
       }
 
       .left-panel {
@@ -159,23 +163,109 @@ import { ReviewPanelComponent } from '../components/review-panel/review-panel.co
         position: sticky;
         top: 1.5rem;
         align-self: start;
+        width: 100%;
       }
 
       .main-panel {
         display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
         gap: 1.5rem;
+        min-height: 0;
+      }
+
+      app-chat-window {
+        min-height: 0;
       }
 
       .input-panel {
-        position: relative;
         width: 100%;
-        bottom: 0;
         padding: 1.2rem;
         background: rgba(11, 19, 35, 0.9);
         border: 1px solid var(--border-color);
         border-radius: 18px;
         backdrop-filter: blur(18px);
         box-shadow: var(--shadow-soft);
+      }
+
+      .footer-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      @media screen and (max-width: 1200px) {
+        .page-body {
+          grid-template-columns: 1fr;
+        }
+
+        .left-panel {
+          position: relative;
+          top: 0;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .assistant-shell {
+          padding: 1rem;
+        }
+
+        .page-header {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .header-actions {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .page-body {
+          gap: 1rem;
+        }
+
+        .main-panel {
+          gap: 1rem;
+        }
+
+        .input-panel {
+          padding: 1rem;
+        }
+
+        textarea[pInputTextarea] {
+          min-height: 108px;
+        }
+
+        .footer-actions {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.75rem;
+        }
+
+        .footer-actions button {
+          width: 100%;
+          min-height: 44px;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .assistant-shell {
+          padding: 0.75rem;
+        }
+
+        .page-header {
+          padding: 1.2rem 1rem;
+        }
+
+        .page-body {
+          gap: 0.9rem;
+        }
+
+        .input-panel {
+          padding: 0.95rem;
+        }
+
+        .header-copy h1 {
+          font-size: 1.8rem;
+        }
       }
 
       textarea[pInputTextarea] {

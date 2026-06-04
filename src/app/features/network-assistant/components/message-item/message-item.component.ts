@@ -93,6 +93,50 @@ import { ChatMessage } from '../../models/chat-message.model';
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
+      @media screen and (max-width: 768px) {
+        .message-card {
+          padding: 0.95rem;
+        }
+
+        .message-top {
+          gap: 0.75rem;
+        }
+
+        .avatar {
+          min-width: 2.4rem;
+          min-height: 2.4rem;
+          font-size: 0.9rem;
+        }
+
+        .text-bubble {
+          padding: 0.9rem;
+        }
+
+        .yaml-block {
+          font-size: 0.88rem;
+        }
+
+        .copy-button,
+        .expand-button,
+        .download-button {
+          min-width: 90px;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .message-card {
+          padding: 0.85rem;
+        }
+
+        .action-row {
+          justify-content: stretch;
+        }
+
+        .review-toggle {
+          width: 100%;
+        }
+      }
+
       .header-copy {
         display: grid;
         gap: 0.15rem;
@@ -148,7 +192,8 @@ import { ChatMessage } from '../../models/chat-message.model';
         color: #e5e7eb;
         padding: 1.1rem;
         border-radius: 16px;
-        overflow: auto;
+        overflow-x: auto;
+        white-space: pre;
         margin: 0;
         border: 1px solid rgba(255, 255, 255, 0.06);
         font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -157,10 +202,11 @@ import { ChatMessage } from '../../models/chat-message.model';
       }
 
       .action-row {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
         align-items: center;
+        justify-content: space-between;
         margin-top: 1rem;
       }
 

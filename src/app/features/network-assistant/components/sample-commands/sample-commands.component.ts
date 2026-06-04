@@ -41,6 +41,7 @@ import { PLAYBOOK_TEMPLATES } from '../../constants/playbook-templates';
       .commands-grid {
         display: grid;
         gap: 0.9rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       }
 
       .command-card {
@@ -57,6 +58,7 @@ import { PLAYBOOK_TEMPLATES } from '../../constants/playbook-templates';
         text-align: left;
         cursor: pointer;
         transition: transform 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+        min-width: 0;
       }
 
       .command-card:hover {
@@ -102,6 +104,37 @@ import { PLAYBOOK_TEMPLATES } from '../../constants/playbook-templates';
       .arrow {
         color: rgba(255, 255, 255, 0.44);
         font-size: 1rem;
+      }
+
+      @media screen and (max-width: 768px) {
+        .commands-grid {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          gap: 0.75rem;
+          padding-bottom: 0.5rem;
+          margin: 0 -0.75rem;
+        }
+
+        .command-card {
+          min-width: 220px;
+          flex: 0 0 auto;
+          width: auto;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .command-card {
+          padding: 1rem 0.95rem;
+        }
+
+        .command-title {
+          font-size: 0.92rem;
+        }
+
+        .command-description {
+          font-size: 0.82rem;
+        }
       }
     `
   ]
