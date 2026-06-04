@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "angular-developer": {
+      "source": "angular/skills",
+      "sourceType": "github",
+      "skillPath": "angular-developer/SKILL.md",
+      "computedHash": "bda1b480a934095b6000dd9e5648bc8760fe2684fc69cea2d20ae967b69e50b9"
+    },
+    "angular-primeng": {
+      "source": "seikaikyo/dash-skills",
+      "sourceType": "github",
+      "skillPath": "skills/angular-primeng/SKILL.md",
+      "computedHash": "78743f792ece31ec46a7eb1e1d93744b6fb65cac7831a0d7f6cdeb594ea38e01"
+    }
+  }
+}
